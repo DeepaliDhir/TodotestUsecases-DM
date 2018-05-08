@@ -1,0 +1,17 @@
+1525604013643	Delete element
+1525604181692	Delete element
+1525604242902	Delete element
+1525604248897	Delete element
+1525657324058	Extract method 'usecase1'
+1525694631053	Extract method 'addTaskList'
+1525722853358	Extract method 'addTasks'
+1525722925215	Extract method 'getAllTasks'
+1525722956400	Extract method 'getActiveTasks'
+1525722992594	Extract method 'getActiveTasksFromUI'
+1525723096461	Extract method 'getCompletedTasks'
+1525723373045	Move compilation unit
+1525724694038	Extract method 'intializeWebDriver'
+1525761996934	Rename package 'com.verify.todo.contants'
+1525763283655	Move file
+1525772798008	Delete element
+1525775061484	Delete element

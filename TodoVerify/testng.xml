@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TodoListVerify">
+<listeners>
+		<listener class-name="com.verify.todo.CustomeTodoListener" />
+	</listeners>
+
+	<test name="TodoList">
+		<packages>
+			<package name="com.verify.todo" />
+		</packages>
+	</test>
+
+</suite>

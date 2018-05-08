@@ -1,0 +1,49 @@
+package com.verify.todo;
+
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+
+
+public class TodoList {
+	
+@Test	
+public  void test123() {
+	System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+	 WebDriver driver = new ChromeDriver();
+		// Create a new instance of the Firefox driver
+		
+	 driver.get("http://todomvc.com/examples/troopjs_require/");
+	
+	
+        // Print a Log In message to the screen
+        System.out.println("Successfully opened the website www.Store.Demoqa.com");
+ 
+		//Wait for 5 Sec
+		
+       WebElement we= driver.findElement(By.xpath("//input[@placeholder='What needs to be done?']"));
+    		   we.sendKeys("test execute2345");
+        we.click();
+        
+        		Actions action = new Actions(driver);
+        		action.sendKeys(Keys.ENTER);
+        		action.build().perform();
+    	
+    	System.out.println("Before Enter");
+    	//driver.findElement(By.xpath("//input[@placeholder='test execute']")).sendKeys(Keys.RETURN);
+    			
+    //	we.sendKeys(Keys.ENTER);
+    //	we.submit();
+    	
+    	System.out.println("After Enter");
+    	
+}
+
+
+
+}

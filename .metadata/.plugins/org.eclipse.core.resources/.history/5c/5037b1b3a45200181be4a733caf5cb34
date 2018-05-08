@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [TodoListVerify]">
+  <test thread-count="5" name="order(failed)">
+    <classes>
+      <class name="com.verify.todo.TodoList">
+        <methods>
+          <include name="addTaskList"/>
+          <include name="initializeWebDriver"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- com.verify.todo.TodoList -->
+    </classes>
+  </test> <!-- order(failed) -->
+</suite> <!-- Failed suite [TodoListVerify] -->

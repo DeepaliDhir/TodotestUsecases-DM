@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="ReportSuite" parallel="false">
+
+	<test name="TodoListReport">
+		<packages>
+			<package name="com.verify.todo" />
+		</packages>
+	</test>
+
+</suite>

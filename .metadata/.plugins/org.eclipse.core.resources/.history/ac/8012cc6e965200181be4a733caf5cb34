@@ -1,0 +1,5 @@
+package com.verify.todo.constant;
+
+public class TodoConstants {
+	public static final String TODO_ALL_ELEMENT_LIST="//ul[@class='todo-list']/li";
+}

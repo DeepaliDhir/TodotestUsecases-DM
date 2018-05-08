@@ -1,0 +1,65 @@
+package com.verify.todo;
+
+import java.util.List;
+
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+
+
+public class TodoList {
+	
+@Test	
+public  void test123() throws Exception {
+	System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+	 WebDriver driver = new ChromeDriver();
+		// Create a new instance of the Firefox driver
+		
+	 driver.get("http://todomvc.com/examples/troopjs_require/");
+	
+	
+        // Print a Log In message to the screen
+        System.out.println("Successfully opened the website www.Store.Demoqa.com");
+ 
+		//Wait for 5 Sec
+        Thread.sleep(1000);
+        WebElement we =driver.findElement(By.xpath("//input[@placeholder='What needs to be done?']"));
+        we.sendKeys("testusecase1");
+        Thread.sleep(6000);
+        		we.sendKeys(Keys.RETURN);
+        		
+        		  we =driver.findElement(By.xpath("//input[@placeholder='What needs to be done?']"));
+        	        we.sendKeys("testusecase1223");
+        	        Thread.sleep(6000);
+        	        		we.sendKeys(Keys.RETURN);		
+        		
+        		List<WebElement> allElements = driver.findElements(By.xpath("//ul[@class='todo-list']/li")); 
+        		int i=0;
+        		for (WebElement element: allElements) {
+        		      System.out.println(element.getText());
+        		      i++;
+        		      
+        		    
+        		}
+        		driver.findElement(By.xpath("//ul[@class='todo-list']/li[2]/div/input[@type='checkbox']")).click();
+        		//delete usecase 
+        	
+        		Actions builder = new Actions(driver);
+        		 WebElement element = driver.findElement(By.xpath("//label[text()='testusecase1223']/button"));
+        				 
+        		 builder.moveToElement(element).build().perform();
+        		
+     
+    	
+    	System.out.println("After Enter");
+    	
+}
+
+
+
+}

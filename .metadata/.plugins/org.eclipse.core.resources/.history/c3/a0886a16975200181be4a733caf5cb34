@@ -1,0 +1,20 @@
+package com.verify.todo.constant;
+
+public class TodoConstants {
+	public static final String TODO_ALL_ELEMENT_LIST="//ul[@class='todo-list']/li";
+	public static final String TODO_ACTIVE_TASK_UI="//footer[@class='footer']/span[@class='todo-count']";
+	public static final String TODO_CLICK_ACTIVE_TASK_LINK="//footer[@class='footer']/ul/li[2]/a";
+	public static final String TODO_FILTER_ACTIVE_LIST="//ul[@class='todo-list filter-active']/li";
+	public static final String TODO_CLICK_ALL_TASK_LINK="//footer[@class='footer']/ul/li[1]/a";
+	public static final String TODO_FILTER_ALL_LIST="//ul[@class='todo-list']/li";
+	public static final String TODO_ADD_TASK_INPUT="//input[@placeholder='What needs to be done?']";
+	public static final String TODO_CLICK_COMPLETED_TASK_LINK="//footer[@class='footer']/ul/li[3]/a";	
+	public static final String TODO_FILTER_COMPLETED_LIST="//ul[@class='todo-list filter-completed']/li[@class='completed']";
+	public static final String TODO_TASK_NAME_1="create testspec";
+	public static final String TODO_TASK_NAME_2="write usecase";
+	public static final String TODO_TASK_NAME_3="update test spec";
+	public static final String TODO_TASK_NAME_4="automate usecases";
+	public static final String TODO_URL="http://todomvc.com/examples/troopjs_require/";
+	public static final String TODO_DRIVER_NAME="webdriver.chrome.driver";
+	public static final String TODO_DRIVER_LOC="src//resource//chromedriver.exe";
+}

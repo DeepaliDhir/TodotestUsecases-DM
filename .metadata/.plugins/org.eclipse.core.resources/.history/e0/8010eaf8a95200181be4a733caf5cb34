@@ -1,0 +1,24 @@
+<h2>Methods run, sorted chronologically</h2><h3>&gt;&gt; means before, &lt;&lt; means after</h3><p/><br/><em>TodoListVerify</em><p/><small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table border="1">
+<tr><th>Time</th><th>Delta (ms)</th><th>Suite<br>configuration</th><th>Test<br>configuration</th><th>Class<br>configuration</th><th>Groups<br>configuration</th><th>Method<br>configuration</th><th>Test<br>method</th><th>Thread</th><th>Instances</th></tr>
+<tr bgcolor="656eb2">  <td>18/05/08 15:52:27</td>   <td>0</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TodoList.addTaskList()[pri:1, instance:com.verify.todo.TodoList@13c27452]">addTaskList</td> 
+  <td>main@246550802</td>   <td></td> </tr>
+<tr bgcolor="656eb2">  <td>18/05/08 15:53:11</td>   <td>44306</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TodoList.clearCompletedList()[pri:5, instance:com.verify.todo.TodoList@13c27452]">clearCompletedList</td> 
+  <td>main@246550802</td>   <td></td> </tr>
+<tr bgcolor="656eb2">  <td>18/05/08 15:52:43</td>   <td>15775</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;TodoList.close()[pri:0, instance:com.verify.todo.TodoList@13c27452]">&lt;&lt;close</td> 
+<td>&nbsp;</td>  <td>main@246550802</td>   <td></td> </tr>
+<tr bgcolor="656eb2">  <td>18/05/08 15:53:07</td>   <td>40621</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;TodoList.close()[pri:0, instance:com.verify.todo.TodoList@13c27452]">&lt;&lt;close</td> 
+<td>&nbsp;</td>  <td>main@246550802</td>   <td></td> </tr>
+<tr bgcolor="656eb2">  <td>18/05/08 15:53:11</td>   <td>44291</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TodoList.deleteTask()[pri:3, instance:com.verify.todo.TodoList@13c27452]">deleteTask</td> 
+  <td>main@246550802</td>   <td></td> </tr>
+<tr bgcolor="656eb2">  <td>18/05/08 15:53:11</td>   <td>44299</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TodoList.editTask()[pri:4, instance:com.verify.todo.TodoList@13c27452]">editTask</td> 
+  <td>main@246550802</td>   <td></td> </tr>
+<tr bgcolor="656eb2">  <td>18/05/08 15:52:16</td>   <td>-10337</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;TodoList.initializeWebDriver()[pri:0, instance:com.verify.todo.TodoList@13c27452]">&gt;&gt;initializeWebDriver</td> 
+<td>&nbsp;</td>  <td>main@246550802</td>   <td></td> </tr>
+<tr bgcolor="656eb2">  <td>18/05/08 15:52:44</td>   <td>17225</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;TodoList.initializeWebDriver()[pri:0, instance:com.verify.todo.TodoList@13c27452]">&gt;&gt;initializeWebDriver</td> 
+<td>&nbsp;</td>  <td>main@246550802</td>   <td></td> </tr>
+<tr bgcolor="656eb2">  <td>18/05/08 15:53:08</td>   <td>41435</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;TodoList.initializeWebDriver()[pri:0, instance:com.verify.todo.TodoList@13c27452]">&gt;&gt;initializeWebDriver</td> 
+<td>&nbsp;</td>  <td>main@246550802</td>   <td></td> </tr>
+<tr bgcolor="656eb2">  <td>18/05/08 15:52:51</td>   <td>24096</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TodoList.markTaskCompleted()[pri:2, instance:com.verify.todo.TodoList@13c27452]">markTaskCompleted</td> 
+  <td>main@246550802</td>   <td></td> </tr>
+</table>

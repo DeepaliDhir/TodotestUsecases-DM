@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="PatchWizard">
+		<item value="956" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="" key="PatchWizardPage1.WORKSPACE_PATH"/>
+		<item value="4" key="PatchWizardPage1.INPUT_METHOD"/>
+		<item value="" key="PatchWizardPage1.PATCH_FILES"/>
+		<item value="889" key="DIALOG_HEIGHT"/>
+		<item value="493" key="DIALOG_X_ORIGIN"/>
+		<item value="11" key="DIALOG_Y_ORIGIN"/>
+		<list key="PatchWizardPage1.PATCH_FILES">
+			<item value=""/>
+		</list>
+		<list key="PatchWizardPage1.PATCH_URLS">
+			<item value="http://download.eclipse.org/egit/updates-2.1/"/>
+		</list>
+	</section>
+	<section name="PreviewPatchPage">
+		<item value="true" key="expandPatchOptions"/>
+		<item value="false" key="generateRejects"/>
+	</section>
+</section>

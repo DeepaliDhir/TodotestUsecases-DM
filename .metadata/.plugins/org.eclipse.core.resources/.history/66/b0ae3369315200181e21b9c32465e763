@@ -1,0 +1,5 @@
+package com.verify.todo.contants;
+
+public class TodoUtils {
+
+}

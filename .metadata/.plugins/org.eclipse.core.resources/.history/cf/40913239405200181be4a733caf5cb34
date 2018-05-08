@@ -1,0 +1,146 @@
+package com.verify.todo;
+
+import org.testng.Assert;
+import org.testng.AssertJUnit;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import com.verify.todo.utilities.TodoUtils;
+
+public class TodoList {
+	public WebDriver driver;
+
+	
+
+	@BeforeMethod
+    public void initializeWebDriver() throws InterruptedException
+    {
+		//String testMethodName = this.getClass().getName() + ".initializeWebDriver";
+        driver=TodoUtils.initWebDriver();      
+        
+    }
+
+	//@Test(priority=1)
+	public void addTaskList() throws InterruptedException {
+
+		TodoUtils.addTasks(driver);
+		Thread.sleep(3000);
+		int allListSize = TodoUtils.getAllTasks(driver);
+		System.out.println("value of all list : " + allListSize);
+		AssertJUnit.assertEquals("Value of task All completed", allListSize, 4);
+		
+		
+		String val = TodoUtils.getActiveTasksFromUI(driver);
+		/*System.out.println("value from ui :"+val);*/
+		
+		int activeListSize = TodoUtils.getActiveTasks(driver);
+		System.out.println("value of active list : "+ activeListSize);
+		Assert.assertEquals(activeListSize, 4);
+		
+		
+		
+		
+	}
+
+	
+		
+	
+//	@Test(priority=2)
+	public void markTaskCompleted() throws Exception {
+		TodoUtils.addTasks(driver);
+		List<WebElement> allElements = driver.findElements(By.xpath("//ul[@class='todo-list']/li"));
+		int i = allElements.size();
+		for (int j = 0; j < i; j++) {
+			WebElement ele = allElements.get(j);
+			String x = ele.getText();
+			int z = j + 1;
+			if (x.equalsIgnoreCase("update test spec")) {
+				driver.findElement(
+						By.xpath("//ul[@class='todo-list']/li[" + z + "]/div/input[@type='checkbox']")).click();
+				Thread.sleep(3000);
+				break;
+			}
+
+		}
+		int completedListSize = TodoUtils.getCompletedTasks(driver);
+		System.out.println("value of completed list "+completedListSize);
+		Assert.assertEquals(completedListSize, 1);
+	}
+
+	
+	//@Test(priority=3)
+	public void deleteTask() throws InterruptedException {
+		TodoUtils.addTasks(driver);
+		List<WebElement> allElements = driver.findElements(By.xpath("//ul[@class='todo-list']/li"));
+		int i = allElements.size();
+		for (int k = 0; k < i; k++) {
+			WebElement ele = allElements.get(k);
+			String x = ele.getText();
+			int z = k + 1;
+			
+			if (x.equalsIgnoreCase("write usecase")) {
+				Actions hover = new Actions(driver);
+				hover.moveToElement(
+						driver.findElement(By
+								.xpath("//ul[@class='todo-list']/li[" + z + "]/div/label"))).perform();
+				driver.findElement(
+						By.xpath("//ul[@class='todo-list']/li[" + z + "]/div/button")).click();
+				Thread.sleep(3000);
+				break;
+			}
+
+		}
+		int allListSize = TodoUtils.getAllTasks(driver);
+		System.out.println("value of all list : " + allListSize);
+		Assert.assertEquals(allListSize, 3);
+		
+		
+	}
+	
+	@Test(priority=4)
+	public void editTask()throws InterruptedException{
+		TodoUtils.addTasks(driver);
+		List<WebElement> allElements = driver.findElements(By.xpath("//ul[@class='todo-list']/li"));
+		int i = allElements.size();
+		for (int k = 0; k < i; k++) {
+			WebElement ele = allElements.get(k);
+			String x = ele.getText();
+			int z = k + 1;
+			
+			if (x.equalsIgnoreCase("write usecase")) {
+				
+				Actions action = new Actions(driver);
+				WebElement btnElement=driver.findElement(By.xpath("//ul[@class='todo-list']/li[" + z + "]/div/label"));
+				action.doubleClick(btnElement).build().perform();
+				WebElement startEdit=driver.findElement(By.xpath("//ul[@class='todo-list']/li[@class='active editing']/input"));
+				startEdit.clear();
+				startEdit.sendKeys("wrote usecases");
+				break;
+			}
+			}
+	}
+	//@Test(priority=5)
+	public void clearCompletedList() throws InterruptedException{
+		TodoUtils.addTasks(driver);
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@class='toggle-all'and @type='checkbox']")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//footer[@class='footer']/button[@class='clear-completed']")).click();
+		Thread.sleep(3000);
+	}
+	
+	
+	@AfterMethod
+	public void close(){
+		driver.quit();
+	}
+
+	
+}

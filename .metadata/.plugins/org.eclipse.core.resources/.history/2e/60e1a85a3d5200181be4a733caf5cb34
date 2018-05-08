@@ -1,0 +1,70 @@
+package com.verify.todo.utilities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TodoUtils {
+
+	
+	public static String getActiveTasksFromUI(WebDriver driver) {
+		WebElement we = driver.findElement(By.xpath("//footer[@class='footer']/span[@class='todo-count']"));
+		String val = we.getText().toString();
+		return val;
+	}
+
+	public static int getActiveTasks(WebDriver driver) {
+		driver.findElement(By.xpath("//footer[@class='footer']/ul/li[2]/a")).click();
+		List<WebElement> activeList = driver.findElements(By.xpath("//ul[@class='todo-list filter-active']/li"));
+		int activeListSize= activeList.size();
+		return activeListSize;
+	}
+
+	public static int getAllTasks(WebDriver driver) {
+		driver.findElement(By.xpath("//footer[@class='footer']/ul/li[1]/a")).click();
+		List<WebElement> allList = driver.findElements(By.xpath("//ul[@class='todo-list']/li"));
+		int allListSize= allList.size();
+		return allListSize;
+	}
+
+	public static void addTasks(WebDriver driver) throws InterruptedException {
+		List<String> tList = getTaskList();
+		for (int i = 0; i < tList.size(); i++) {
+			WebElement we = driver.findElement(By.xpath("//input[@placeholder='What needs to be done?']"));
+			we.sendKeys(tList.get(i));
+			Thread.sleep(2000);
+			we.sendKeys(Keys.RETURN);
+		}
+	}
+	
+	public static int getCompletedTasks(WebDriver driver) {
+		driver.findElement(By.xpath("//footer[@class='footer']/ul/li[3]/a")).click();
+		List<WebElement> comList = driver.findElements(By.xpath("//ul[@class='todo-list filter-completed']/li[@class='completed']"));
+		int completedListSize= comList.size();
+		return completedListSize;
+	}
+	
+	public static List<String> getTaskList() {
+		List<String> taskList = new ArrayList<String>();
+		taskList.add("create testspec");
+		taskList.add("write usecase");
+		taskList.add("update test spec");
+		taskList.add("automate usecases");
+		return taskList;
+
+	}
+	
+	public static WebDriver initWebDriver() throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://todomvc.com/examples/troopjs_require/");
+		Thread.sleep(1000);
+		return driver;
+	}
+
+}

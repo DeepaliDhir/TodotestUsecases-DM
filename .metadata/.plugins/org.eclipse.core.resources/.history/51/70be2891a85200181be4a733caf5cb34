@@ -1,0 +1,111 @@
+package com.verify.todo.utilities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Reporter;
+
+import com.verify.todo.constant.TodoConstants;
+
+public class TodoUtils {
+
+	
+	/**
+	 * This method will get the active tasks present in ui
+	 * @param driver
+	 * @return
+	 */
+	public static String getActiveTasksFromUI(WebDriver driver) {
+		WebElement we = driver.findElement(By.xpath(TodoConstants.TODO_ACTIVE_TASK_UI));
+		String val = we.getText().toString();
+		return val;
+	}
+	
+	/**
+	 * This method will calculate the active task based on task present in ui in active pageS
+	 * @param driver
+	 * @return
+	 */
+	public static int getActiveTasks(WebDriver driver) {
+		driver.findElement(By.xpath(TodoConstants.TODO_CLICK_ACTIVE_TASK_LINK)).click();
+		List<WebElement> activeList = driver.findElements(By.xpath(TodoConstants.TODO_FILTER_ACTIVE_LIST));
+		int activeListSize= activeList.size();
+		return activeListSize;
+	}
+	
+	/**
+	 * This method will calculate the all task based on task present in ui in all page
+	 * @param driver
+	 * @return
+	 */
+	public static int getAllTasks(WebDriver driver) {
+		driver.findElement(By.xpath(TodoConstants.TODO_CLICK_ALL_TASK_LINK)).click();
+		List<WebElement> allList = driver.findElements(By.xpath(TodoConstants.TODO_FILTER_ALL_LIST));
+		int allListSize= allList.size();
+		return allListSize;
+	}
+	
+	/**
+	 * This method will add the task 
+	 * @param driver
+	 * @throws InterruptedException
+	 */
+	public static void addTasks(WebDriver driver) throws InterruptedException {
+		List<String> tList = getTaskList();
+		for (int i = 0; i < tList.size(); i++) {
+			WebElement we = driver.findElement(By.xpath(TodoConstants.TODO_ADD_TASK_INPUT));
+			we.sendKeys(tList.get(i));
+			Thread.sleep(3000);
+			we.sendKeys(Keys.RETURN);
+		}
+	}
+	
+	/**
+	 * This method will calculate the all task based on task present in ui in completed page
+	 * @param driver
+	 * @return
+	 */
+	public static int getCompletedTasks(WebDriver driver) {
+		driver.findElement(By.xpath(TodoConstants.TODO_CLICK_COMPLETED_TASK_LINK)).click();
+		List<WebElement> comList = driver.findElements(By.xpath(TodoConstants.TODO_FILTER_COMPLETED_LIST));
+		int completedListSize= comList.size();
+		return completedListSize;
+	}
+	
+	/**
+	 * This method will return the list of task to be added in ui 
+	 * @return
+	 */
+	public static List<String> getTaskList() {
+		List<String> taskList = new ArrayList<String>();
+		taskList.add(TodoConstants.TODO_TASK_NAME_1);
+		taskList.add(TodoConstants.TODO_TASK_NAME_2);
+		taskList.add(TodoConstants.TODO_TASK_NAME_3);
+		taskList.add(TodoConstants.TODO_TASK_NAME_4);
+		return taskList;
+
+	}
+	
+	/**
+	 * This method will intialize the webdriver
+	 * @return
+	 * @throws InterruptedException
+	 */
+	public static WebDriver initWebDriver() throws InterruptedException {
+		
+		System.setProperty(TodoConstants.TODO_DRIVER_NAME,TodoConstants.TODO_DRIVER_LOC );
+		Reporter.log("Using chrome webdriver for logging purpose");
+		WebDriver driver = new ChromeDriver();
+		driver.get(TodoConstants.TODO_URL);
+		Thread.sleep(1000);
+		return driver;
+	}
+	
+
+
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [TodoListVerify]">
+  <listeners>
+    <listener class-name="com.verify.todo.CustomeTodoListener"/>
+  </listeners>
+  <test thread-count="5" name="TodoList(failed)">
+    <classes>
+      <class name="com.verify.todo.TodoList">
+        <methods>
+          <include name="editTask"/>
+          <include name="initializeWebDriver"/>
+          <include name="markTaskCompleted"/>
+          <include name="clearCompletedList"/>
+          <include name="deleteTask"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- com.verify.todo.TodoList -->
+    </classes>
+  </test> <!-- TodoList(failed) -->
+</suite> <!-- Failed suite [TodoListVerify] -->

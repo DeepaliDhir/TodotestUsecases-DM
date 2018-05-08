@@ -1,0 +1,111 @@
+package com.verify.todo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+
+
+public class TodoList {
+	
+@Test	
+public  void test123() throws Exception {
+	System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+	 WebDriver driver = new ChromeDriver();
+		// Create a new instance of the Firefox driver
+		
+	 driver.get("http://todomvc.com/examples/troopjs_require/");
+	
+	
+        // Print a Log In message to the screen
+        System.out.println("Successfully opened the website www.Store.Demoqa.com");
+ 
+		//Wait for 5 Sec
+        Thread.sleep(1000);
+        addTaskList(driver);		
+        markTaskCompleted(driver);		
+        deleteTask(driver);		
+        		
+        	
+        		
+        		
+        		
+     
+    	
+    	
+    	
+}
+
+private void addTaskList(WebDriver driver) throws InterruptedException {
+	
+	List<String> tList= getTaskList();
+	for(int i=1;i<=tList.size();i++){
+	WebElement we =driver.findElement(By.xpath("//input[@placeholder='What needs to be done?']"));
+	we.sendKeys(tList.get(i));
+	Thread.sleep(3000);
+	we.sendKeys(Keys.RETURN);
+	}		
+			
+}
+
+private void markTaskCompleted(WebDriver driver){
+	List<WebElement> allElements = driver.findElements(By.xpath("//ul[@class='todo-list']/li")); 
+	int i=allElements.size();
+	for (int j=0;j<i;j++) {
+	      WebElement ele = allElements.get(j);
+	      String x=ele.getText();
+	      int z=j+1;
+	      System.out.println("here is the val"+ x);
+	      System.out.println(j);
+	      System.out.println(i);
+	      if(x.equalsIgnoreCase("testusecase12"))
+	      {
+	    	  driver.findElement(By.xpath("//ul[@class='todo-list']/li[" + z + "]/div/input[@type='checkbox']")).click();
+	    	  break;
+	      }
+	          		        		    
+	}
+}
+	
+
+	private void deleteTask(WebDriver driver){
+		List<WebElement> allElements = driver.findElements(By.xpath("//ul[@class='todo-list']/li")); 
+		int i=allElements.size();
+		for (int k=0;k<i;k++) {
+		      WebElement ele = allElements.get(k);
+		      String x=ele.getText();
+		      int z=k+1;
+		      System.out.println("here is the val"+ x);
+		      System.out.println("k"+k);
+		      System.out.println("value of i "+ i);
+		      if(x.equalsIgnoreCase("testusecase12"))
+		      {
+		    	Actions hover=new Actions(driver);
+      		hover.moveToElement(driver.findElement(By.xpath("//ul[@class='todo-list']/li[" + z + "]/div/label"))).perform();
+      		driver.findElement(By.xpath("//ul[@class='todo-list']/li[" + z + "]/div/button")).click();
+		    	  break;
+		      }
+		          		        		    
+		}
+  	
+
+	}
+	
+	private List<String> getTaskList(){
+		List<String> taskList = new ArrayList<String>();
+		taskList.add("create testspec");
+		taskList.add("write usecase");
+		taskList.add("update test spec");
+		taskList.add("automate usecases");
+		return taskList;
+		
+	}
+
+}
